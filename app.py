@@ -13,8 +13,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = LSTMModelV1(input_size=len(vocab),
                   embedding_dim=100,
-                  hidden_size=48,
-                  layer_dim=3,
+                  hidden_size=64,
+                  layer_dim=4,
                   drop_out = 0.2,
                   bi_directional = True,
                   output_dim=4
@@ -30,11 +30,7 @@ categories = {
 }
 
 
-# categories = {
-#     0: "Irrelevant",
-#     1: "Negative",
-#     2: "Neutral",
-#     3: "Positive"}
+
 
 def predict(model, text):
     X = torch.tensor(text, dtype=torch.long).unsqueeze(0)

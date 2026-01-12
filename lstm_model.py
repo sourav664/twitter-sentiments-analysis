@@ -8,7 +8,7 @@ with open('./data/vocab.json', 'r') as f:
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-save_model_path = './models/modelV2.pth'
+model_path = './models/modelV2.pth'
 
 class LSTMModelV1(nn.Module):
 
@@ -45,17 +45,21 @@ class LSTMModelV1(nn.Module):
 
         return out
     
+
+
+if __name__ == "__main__":
     
-model = LSTMModelV1(input_size=len(vocab),
+    
+    model = LSTMModelV1(input_size=len(vocab),
                   embedding_dim=100,
-                  hidden_size=48,
-                  layer_dim=3,
+                  hidden_size=64,
+                  layer_dim=4,
                   drop_out = 0.2,
                   bi_directional = True,
                   output_dim=4
                   ).to(device)
 
-model.load_state_dict(torch.load(save_model_path))
+    model.load_state_dict(torch.load(model_path))
 
 
 
