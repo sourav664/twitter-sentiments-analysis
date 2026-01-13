@@ -53,11 +53,9 @@ def replace_word_with_numbers(text):
 
 
 # padding 
-def padding(text):
-    max_len = 200
-    if len(text) > max_len:
-        max_len = len(text)
-    return text + [0] * (max_len - len(text))
+def padding(text, max_len=200):
+    return text[:max_len] + [0] * (max_len - len(text))
+
 
 
 def preprocesser(text):
@@ -67,3 +65,6 @@ def preprocesser(text):
     tokens = replace_word_with_numbers(tokens)
     tokens = padding(tokens)
     return tokens
+
+
+preprocesser("I be come to the border and I will kill you all ,")

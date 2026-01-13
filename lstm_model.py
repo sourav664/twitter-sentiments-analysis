@@ -6,9 +6,9 @@ import json
 with open('./data/vocab.json', 'r') as f:
     vocab = json.load(f)
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 
-model_path = './models/modelV2.pth'
+model_path = './models/modelV3.pth'
 
 class LSTMModelV1(nn.Module):
 
@@ -16,7 +16,7 @@ class LSTMModelV1(nn.Module):
         super().__init__()
         self.hidden_size = hidden_size
         self.layer_dim = layer_dim
-        self.embedding = nn.Embedding(input_size, embedding_dim=embedding_dim)
+        self.embedding = nn.Embedding(input_size, embedding_dim=embedding_dim, padding_idx=0)
         self.lstm = nn.LSTM(embedding_dim, hidden_size, batch_first=True, num_layers=layer_dim, bidirectional=bi_directional, dropout=drop_out)
         self.dropout = nn.Dropout(drop_out)
         self.linear = nn.Linear(hidden_size * 2 if bi_directional else hidden_size, output_dim) # Adjust linear layer size based on bidirectionality
@@ -47,19 +47,21 @@ class LSTMModelV1(nn.Module):
     
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     
     
-    model = LSTMModelV1(input_size=len(vocab),
-                  embedding_dim=100,
-                  hidden_size=64,
-                  layer_dim=4,
-                  drop_out = 0.2,
-                  bi_directional = True,
-                  output_dim=4
-                  ).to(device)
+model = LSTMModelV1(input_size=len(vocab),
+                embedding_dim=100,
+                hidden_size=64,
+                layer_dim=4,
+                drop_out = 0.2,
+                bi_directional = True,
+                output_dim=4
+                ).to(device)
 
-    model.load_state_dict(torch.load(model_path))
+state_dict = torch.load(model_path, map_location=device)
+model.load_state_dict(state_dict=state_dict)
+model.to(device)
 
 
 
