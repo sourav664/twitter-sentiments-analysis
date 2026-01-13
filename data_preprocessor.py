@@ -66,5 +66,3 @@ def preprocesser(text):
     tokens = padding(tokens)
     return tokens
 
-
-preprocesser("I be come to the border and I will kill you all ,")

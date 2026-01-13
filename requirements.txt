@@ -1,7 +1,7 @@
 bs4
 emoji
 contractions==0.1.73
-streamlit
+streamlit==1.52.2
 torch==2.8.0
 spacy==3.7.2
 https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl
