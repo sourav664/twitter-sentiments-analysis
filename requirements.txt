@@ -1,6 +1,6 @@
 bs4
 emoji
-contractions
+contractions==0.1.73
 streamlit
 torch==2.8.0
 spacy==3.7.2
