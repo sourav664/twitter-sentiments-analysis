@@ -73,12 +73,6 @@ The following preprocessing steps were applied sequentially:
 - **F1-Score:** 88%
 - **AUC Score:** 0.98
 
-## 🚀 Deployment
-- Converted the trained model into a **Streamlit web application**
-- Enables **real-time sentiment prediction** for user-input tweets
-- 🔗 **Live App:** https://check-tweet-sentiment.streamlit.app/
-
-
 These results indicate strong generalization and excellent classification performance.
 
 ---
