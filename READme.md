@@ -1,8 +1,15 @@
 # Twitter Sentiment Analysis using BiLSTM
 
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Try%20Live-brightgreen)](https://check-tweet-sentiment.streamlit.app/)
+
+> 🚀 Anyone can use this app to check tweet sentiment instantly using a deep learning BiLSTM model.
+
+---
+
+
 ## 📌 Project Overview
 This project focuses on **sentiment analysis of Twitter data** using deep learning.  
-The dataset contains **68,000+ tweets**, and the goal is to classify sentiments accurately by applying robust text preprocessing, model training, and experimentation techniques.
+The dataset contains **69,000+ tweets**, and the goal is to classify sentiments accurately by applying robust text preprocessing, model training, and experimentation techniques.
 
 ---
 
@@ -65,6 +72,12 @@ The following preprocessing steps were applied sequentially:
 - **Accuracy:** 88%
 - **F1-Score:** 88%
 - **AUC Score:** 0.98
+
+## 🚀 Deployment
+- Converted the trained model into a **Streamlit web application**
+- Enables **real-time sentiment prediction** for user-input tweets
+- 🔗 **Live App:** https://check-tweet-sentiment.streamlit.app/
+
 
 These results indicate strong generalization and excellent classification performance.
 
