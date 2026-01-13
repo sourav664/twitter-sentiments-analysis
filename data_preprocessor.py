@@ -9,7 +9,8 @@ with open('./data/vocab.json', 'r') as f:
     vocab = json.load(f)
 
 
-nlp = spacy.load("en_core_web_lg", disable=["parser", "ner"])
+nlp = spacy.load("en_core_web_md", disable=["parser", "ner"])
+
 
 
 def preprocess_text(text):
