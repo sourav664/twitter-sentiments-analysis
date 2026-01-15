@@ -4,6 +4,43 @@ from data_preprocessor import preprocesser
 import torch
 from lstm_model import LSTMModelV1
 import torch.nn.functional as F
+import pandas as pd
+from datetime import datetime
+import os
+
+#-----------------SAVE PREDICTION ----------------
+
+CSV_PATH = "predictions_log.csv"
+
+label_map = {
+    0: "Irrelevant",
+    1: "Negative",
+    2: "Neutral",
+    3: "Positive"
+}
+
+
+def save_prediction_to_csv(text, label, confidence):
+    data = {
+        "tweet": text,
+        "predicted_label_id": label,
+        "predicted_sentiment": label_map[label],
+        "confidence_percent": f"{confidence*100:.2f}%",
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+    df_new = pd.DataFrame([data])
+
+    if os.path.exists(CSV_PATH):
+        df_existing = pd.read_csv(CSV_PATH)
+        df_final = pd.concat([df_existing, df_new], ignore_index=True)
+    else:
+        df_final = df_new
+
+    df_final.to_csv(CSV_PATH, index=False)
+
+
+
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
@@ -152,6 +189,10 @@ def main():
 
             # Confidence bar
             st.progress(confidence)
+            
+            
+            # Save prediction to CSV
+            save_prediction_to_csv(text, predicted, confidence)
 
     # ---------------- TWEET HISTORY ----------------
     if st.session_state.history:
