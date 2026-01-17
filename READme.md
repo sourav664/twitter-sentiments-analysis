@@ -61,7 +61,6 @@ The following preprocessing steps were applied sequentially:
 - Used **MLflow** for:
   - Experiment tracking
   - Metric logging
-  - Model versioning
 - Used **Optuna** for:
   - Hyperparameter tuning
   - Optimizing model performance
@@ -70,7 +69,7 @@ The following preprocessing steps were applied sequentially:
 
 ## 📈 Model Performance (Test Dataset)
 - **Accuracy:** 88%
-- **F1-Score:** 88%
+- **Macro F1-Score:** 88%
 - **AUC Score:** 0.98
 
 These results indicate strong generalization and excellent classification performance.
