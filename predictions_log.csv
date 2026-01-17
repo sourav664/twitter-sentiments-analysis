@@ -1,0 +1,4 @@
+tweet,predicted_label_id,predicted_sentiment,confidence_percent,timestamp
+"CSGO matchmaking is so full of closet hacking, it's a truly awful game.",1,Negative,100.00%,2026-01-17 15:35:45
+BBC News - Amazon boss Jeff Bezos rejects claims company acted like a 'drug dealer' bbc.co.uk/news/av/busineâ€¦,2,Neutral,100.00%,2026-01-17 15:36:00
+happy birthday red dead redemption that shit changed my life what a crazy experience,3,Positive,99.93%,2026-01-17 15:36:09
